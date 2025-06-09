@@ -108,10 +108,11 @@
             <div class="controls">
               
               <div class="search-bar">
-              <i class="fas fa-search"></i>
-              <input type="text" id="searchInputOverview" placeholder="Search Records..." />
-              </div>
-
+<i class="fas fa-search" onclick="liveSearch('birth', 'searchInput_birth')"></i>
+  <input type="text" id="searchInput_birth" placeholder="Search Records..." 
+  oninput="liveSearch('birth', 'searchInput_birth')" 
+  onkeypress="if(event.key === 'Enter') liveSearch('birth', 'searchInput_birth')" />
+</div>
              <!-- Add inside the birth section after the header -->
             <div class="filter-header" onclick="toggleFilterPanel('birth-filter')"><i class="fas fa-filter mr-2"></i> Filter</div>
 
@@ -120,24 +121,32 @@
                       <label for="requestType">Request Type:</label>
                           <select id="requestType">
                             <option value="">All</option>
-                            <option value="Schedule an Appointment_BR">Schedule an Appointment</option>
-                            <option value="Birth Certificate Registration">Birth Certificate Registration</option>
-                            <option value="Correction of Birth Certificate">Request for Correction of Birth Certificate</option>
-                            <option value="Home Delivery Birth">Request for Birth Certificate(Home Delivery)</option>
-                            <option value="Delayed Birth"> Delayed Registration of Birth (Beyond 30 days)</option>
+<option value="Schedule an Appointment">Schedule an Appointment</option>
+<option value="Birth Certificate Registration">Birth Certificate Registration</option>
+<option value="Request for Correction of Birth Certificate">Request for Correction of Birth Certificate</option>
+<option value="Request for Birth Certificate with CTC (Home Delivery)">Request for Birth Certificate with CTC (Home Delivery)</option>
+<option value="Delayed Registration of Birth (Beyond 30 Days)">Delayed Registration of Birth (Beyond 30 Days)</option>  
                           </select>
                   </div>
+                  <div class=".filter-group">
+                          <label for="nameFilter">Name:</label>
+                          <input type="text" id="nameFilter" placeholder="Enter name" />
                   
-                  <div class="filter-group">
+                          <label for="registryFilter">REG NO:</label>
+                          <input type="text" id="registryFilter" placeholder="REG-XXXXXXXX-XXXXX" />
+                  </div>
+                  <div class=".date-range">
                           <label for="startDate">From:</label>
                           <input type="date" id="startDate">
-                  </div>
-                  <div class="filter-group">
+              
                           <label for="endDate">To:</label>
                           <input type="date" id="endDate">
                   </div>
-                          <button class="applybtn" onclick="applyAdvancedFilter()">Apply</button>
-                          <button class="resetbtn" onclick="resetAdvancedFilter()">Reset</button>     
+                          <div class="button-group">
+    <button class="applybtn" onclick="applyAdvancedFilter()">Apply</button>
+    <button class="resetbtn" onclick="resetAdvancedFilter()">Reset</button>
+      </div>
+    
                   </div>
              
           </div>
@@ -218,8 +227,8 @@
 <tr data-type="birth">
   <td>Curry, Stephen</td>
   <td>Request for Birth Certificate with CTC (Home Delivery)</td>
-  <td>REG-20250603-28491</td>
-  <td>06/03/2025</td>
+  <td>REG-20260703-28491</td>
+  <td>07/03/2026</td>
   <td>
     <div class="actions">
       <span class="ellipsis" onclick="toggleMenu(this)"><i class="fas fa-ellipsis-v"></i></span>
@@ -231,10 +240,10 @@
   </td>
 </tr>
 <tr data-type="birth">
-  <td>Antetokounmpo, Giannis</td>
+  <td>Reid, James</td>
   <td>Request for Correction of Birth Certificate</td>
-  <td>REG-20250603-19487</td>
-  <td>06/03/2025</td>
+  <td>REG-20250712-19487</td>
+  <td>07/12/2025</td>
   <td>
     <div class="actions">
       <span class="ellipsis" onclick="toggleMenu(this)"><i class="fas fa-ellipsis-v"></i></span>
@@ -299,38 +308,48 @@
             <div class="controls">
 
               <div class="search-bar">
-              <i class="fas fa-search"></i>
-              <input type="text" id="searchInputOverview" placeholder="Search Records..." />
+              <input type="text" id="searchInput_marriage" placeholder="Search Records..." 
+  oninput="liveSearch('marriage', 'searchInput_marriage')" 
+  onkeypress="if(event.key === 'Enter') liveSearch('marriage', 'searchInput_marriage')" />
+<i class="fas fa-search" onclick="liveSearch('marriage', 'searchInput_marriage')"></i>
               </div>
 
               <!-- Add inside the birth section after the header -->
             <div class="filter-header" onclick="toggleFilterPanel('marriage-filter')"><i class="fas fa-filter mr-2"></i> Filter</div>
                 <div class="filter-panel" id="marriage-filter">
                   <div class="filter-group">
-                      <label for="requestType">Request Type:</label>
-                          <select id="requestType">
+                      <label for="requestType_marriage">Request Type:</label>
+                         <select id="requestType_marriage">
                             <option value="">All</option>
-                            <option value="Schedule an Appointment_MR">Schedule an Appointment</option>
-                            <option value="Marriage Certificate Registration">Marriage Certificate Registration</option>
-                            <option value="Marriage License Registratio">Marriage License Registration</option>
-                            <option value="Home Delivery Marriage">Request for Marriage Certificate (Home Delivery)</option>
-                            <option value="Delayed Marriage">Delayed Registration of Certificate of Marriage</option>
-                            <option value="Correction of Marriage">Request for Correction of Marriage Certificate</option>
+<option value="Schedule of Appointment">Schedule of Appointment</option>
+<option value="Marriage Certificate Registration">Marriage Certificate Registration</option>
+<option value="Marriage License Registration">Marriage License Registration</option>
+<option value="Request for Marriage Certificate – CTC (Home Delivery)">Request for Marriage Certificate – CTC (Home Delivery)</option>
+<option value="Delayed Registration of Certificate of Marriage">Delayed Registration of Certificate of Marriage</option>
+<option value="Request for Correction of Marriage Certificate">Request for Correction of Marriage Certificate</option>
                           </select>
                   </div>
-                  
-                  <div class="filter-group">
-                          <label for="startDate">From:</label>
-                          <input type="date" id="startDate">
+                  <div class=".filter-group">
+                          <label for="nameFilter_marriage">Name:</label>
+                          <input type="text" id="nameFilter_marriage" placeholder="Enter name" />
+                          <label for="registryFilter_marriage">REG NO:</label>
+                          <input type="text" id="registryFilter_marriage" placeholder="REG-XXXXXXXX-XXXXX" />
                   </div>
-                  <div class="filter-group">
-                          <label for="endDate">To:</label>
-                          <input type="date" id="endDate">
+                  <div class=".date-range">
+                          <label for="startDate_marriage">From:</label>
+                          <input type="date" id="startDate_marriage">
+                          <label for="endDate_marriage">To:</label>
+                          <input type="date" id="endDate_marriage">
                   </div>
-                          <button class="applybtn" onclick="applyAdvancedFilter()">Apply</button>
-                          <button class="resetbtn" onclick="resetAdvancedFilter()">Reset</button>     
+                  <div class="button-group">
+    <button class="applybtn" onclick="applyAdvancedFilter()">Apply</button>
+    <button class="resetbtn" onclick="resetAdvancedFilter()">Reset</button>
+      </div>
+    
                   </div>
+             
           </div>
+          
         </div>
         <table>
           <thead>
@@ -503,42 +522,53 @@
               <div class="controls">
 
               <div class="search-bar">
-              <i class="fas fa-search"></i>
-              <input type="text" id="searchInputOverview" placeholder="Search Records..." />
-              </div>
+  <input type="text" id="searchInput_death" placeholder="Search Records..." 
+  oninput="liveSearch('death', 'searchInput_death')" 
+  onkeypress="if(event.key === 'Enter') liveSearch('death', 'searchInput_death')" />
+<i class="fas fa-search" onclick="liveSearch('death', 'searchInput_death')"></i>
+
+</div>
+
 
              <!-- Add inside the birth section after the header -->
             <div class="filter-header" onclick="toggleFilterPanel('death-filter')"><i class="fas fa-filter mr-2"></i> Filter</div>
                 <div class="filter-panel" id="death-filter">
                   <div class="filter-group">
-                      <label for="requestType">Request Type:</label>
-                          <select id="requestType">
+                      <label for="requestType_death">Request Type:</label>
+                          <select id="requestType_death">
                             <option value="">All</option>
-                            <option value="Schedule an Appointment_DR">Schedule an Appointment</option>
-                            <option value="Death Certificate Registration">Death Certificate Registration</option>
-                            <option value="Delayed Death">Delayed Death Registration</option>
-                            <option value="Home Delivery Death">Request for Death Certificate (Home Delivery)</option>
-                            <option value="Correction Death Certificate">Correction of Death Certificate</option>
-                            <option value="Burial Permit Application">Burial Permit Application</option>
-                            <option value="Cremation Permit Application">Cremation Permit Application</option>
+<option value="Schedule of Appointment">Schedule of Appointment</option>
+<option value="Death Certificate">Death Certificate</option>
+<option value="Death Registration">Death Registration</option>
+<option value="Delayed Death Registration">Delayed Death Registration</option>
+<option value="Request for Death Certificate – Certified True Copy (Home Delivery)">Request for Death Certificate – Certified True Copy (Home Delivery)</option>
+<option value="Correction of Death Certificate">Correction of Death Certificate</option>
+<option value="Burial Permit Application">Burial Permit Application</option>
+<option value="Cremation Permit Application">Cremation Permit Application</option>
                           </select>
                   </div>
+                  <div class=".filter-group">
+                          <label for="nameFilter_death">Name:</label>
+                          <input type="text" id="nameFilter_death" placeholder="Enter name" />
                   
-                  <div class="filter-group">
-                          <label for="startDate">From:</label>
-                          <input type="date" id="startDate">
+                          <label for="registryFilter_death">REG NO:</label>
+                          <input type="text" id="registryFilter_death" placeholder="REG-XXXXXXXX-XXXXX" />
                   </div>
-                  <div class="filter-group">
-                          <label for="endDate">To:</label>
-                          <input type="date" id="endDate">
+                  <div class=".date-range">
+                          <label for="startDate_death">From:</label>
+                          <input type="date" id="startDate_death">
+
+                          <label for="endDate_death">To:</label>
+                          <input type="date" id="endDate_death">
                   </div>
+                  <div class="button-group">
                           <button class="applybtn" onclick="applyAdvancedFilter()">Apply</button>
                           <button class="resetbtn" onclick="resetAdvancedFilter()">Reset</button>     
                   </div>
           </div>
-
-        </div>
-        <table>
+                    </div>
+          </div>
+          <table>
           <thead>
             <tr>
               <th>Name of Applicant</th>
@@ -552,7 +582,7 @@
             <tr data-type="death">
               <td>Pedro Penduko</td>
               <td>Death Certificate</td>
-              <td>REG-20250603-31154</td>
+              <td>REG-20250603-31454</td>
               <td>03/30/2024</td>
               <td>
                 <div class="actions">
@@ -567,7 +597,7 @@
                 <tr data-type="death">
   <td>Dela Cruz, Juan</td>
   <td>Schedule of Appointment</td>
-  <td>REG-20250601-31154</td>
+  <td>REG-20250601-41154</td>
   <td>06/01/2025</td>
   <td>
     <div class="actions">
@@ -583,7 +613,7 @@
 <tr data-type="death">
   <td>Reyes, Maria</td>
   <td>Death Registration</td>
-  <td>REG-20250602-31154</td>
+  <td>REG-20250602-81154</td>
   <td>06/02/2025</td>
   <td>
     <div class="actions">
@@ -599,7 +629,7 @@
 <tr data-type="death">
   <td>Garcia, Jose</td>
   <td>Delayed Death Registration</td>
-  <td>REG-20250603-31154</td>
+  <td>REG-20250603-41144</td>
   <td>06/03/2025</td>
   <td>
     <div class="actions">
@@ -615,7 +645,7 @@
 <tr data-type="death">
   <td>Lopez, Ana</td>
   <td>Request for Death Certificate – Certified True Copy (Home Delivery)</td>
-  <td>REG-20250604-31154</td>
+  <td>REG-20250604-14754</td>
   <td>06/04/2025</td>
   <td>
     <div class="actions">
@@ -631,7 +661,7 @@
 <tr data-type="death">
   <td>Santos, Miguel</td>
   <td>Correction of Death Certificate</td>
-  <td>REG-20250605-31154</td>
+  <td>REG-20250605-32154</td>
   <td>06/05/2025</td>
   <td>
     <div class="actions">
@@ -647,7 +677,7 @@
 <tr data-type="death">
   <td>Velasco, Carla</td>
   <td>Burial Permit Application</td>
-  <td>REG-20250606-31154</td>
+  <td>REG-20250606-39854</td>
   <td>06/06/2025</td>
   <td>
     <div class="actions">
@@ -663,7 +693,7 @@
 <tr data-type="death">
   <td>Navarro, Isabel</td>
   <td>Cremation Permit Application</td>
-  <td>REG-20250607-31154</td>
+  <td>REG-20250607-32454</td>
   <td>06/07/2025</td>
   <td>
     <div class="actions">
@@ -679,7 +709,7 @@
 <tr data-type="death">
   <td>Torres, Rafael</td>
   <td>Schedule of Appointment</td>
-  <td>REG-20250608-31154</td>
+  <td>REG-20250608-39754</td>
   <td>06/08/2025</td>
   <td>
     <div class="actions">
@@ -695,7 +725,7 @@
 <tr data-type="death">
   <td>Garcia, Luisa</td>
   <td>Death Registration</td>
-  <td>REG-20250609-31154</td>
+  <td>REG-20250609-37554</td>
   <td>06/09/2025</td>
   <td>
     <div class="actions">
@@ -711,7 +741,7 @@
 <tr data-type="death">
   <td>Flores, Pedro</td>
   <td>Delayed Death Registration</td>
-  <td>REG-20250610-31154</td>
+  <td>REG-20250610-74154</td>
   <td>06/10/2025</td>
   <td>
     <div class="actions">
@@ -736,19 +766,24 @@
   filterpanel.classList.toggle("active");
 }
 
-function applyAdvancedFilter() {
-  const type = document.getElementById("requestType").value.trim();
-  const startDate = document.getElementById("startDate").value;
-  const endDate = document.getElementById("endDate").value;
+function applyFilterToTable(tableSelector, requestTypeId, nameId, registryId, startId, endId) {
+  const type = document.getElementById(requestTypeId).value.trim();
+  const nameFilter = document.getElementById(nameId).value.trim().toLowerCase();
+  const registryFilter = document.getElementById(registryId).value.trim().toLowerCase();
+  const startDate = document.getElementById(startId).value;
+  const endDate = document.getElementById(endId).value;
 
-  const rows = document.querySelectorAll("#birth table tbody tr");
+  const rows = document.querySelectorAll(`${tableSelector} table tbody tr`);
 
   rows.forEach(row => {
     const rowType = row.cells[1].innerText.trim();
-    const rowDateText = row.cells[3].innerText.trim();
-    const rowDate = parseDate(rowDateText); // Date object
+    const rowName = row.cells[0].innerText.trim().toLowerCase();
+    const rowRegistry = row.cells[2].innerText.trim().toLowerCase();
+    const rowDate = parseDate(row.cells[3].innerText.trim());
 
     let matchesType = !type || rowType === type;
+    let matchesName = !nameFilter || rowName.includes(nameFilter);
+    let matchesRegistry = !registryFilter || rowRegistry.includes(registryFilter);
     let matchesDate = true;
 
     if (startDate && endDate && rowDate) {
@@ -757,17 +792,46 @@ function applyAdvancedFilter() {
       matchesDate = rowDate >= start && rowDate <= end;
     }
 
-    row.style.display = (matchesType && matchesDate) ? "" : "none";
+    row.style.display = (matchesType && matchesDate && matchesName && matchesRegistry) ? "" : "none";
   });
 }
 
+
+function applyAdvancedFilter() {
+  applyFilterToTable("#birth", "requestType", "nameFilter", "registryFilter", "startDate", "endDate");
+  applyFilterToTable("#marriage", "requestType_marriage", "nameFilter_marriage", "registryFilter_marriage", "startDate_marriage", "endDate_marriage");
+  applyFilterToTable("#death", "requestType_death", "nameFilter_death", "registryFilter_death", "startDate_death", "endDate_death");
+}
+
+
+
 function resetAdvancedFilter() {
+  // Reset birth filters
   document.getElementById("requestType").value = "";
   document.getElementById("startDate").value = "";
   document.getElementById("endDate").value = "";
+  document.getElementById("nameFilter").value = "";
+  document.getElementById("registryFilter").value = "";
 
-  document.querySelectorAll("#birth table tbody tr").forEach(row => {
-    row.style.display = "";
+  // Reset marriage filters
+  document.getElementById("requestType_marriage").value = "";
+  document.getElementById("startDate_marriage").value = "";
+  document.getElementById("endDate_marriage").value = "";
+  document.getElementById("nameFilter_marriage").value = "";
+  document.getElementById("registryFilter_marriage").value = "";
+
+  // Reset death filters
+  document.getElementById("requestType_death").value = "";
+  document.getElementById("startDate_death").value = "";
+  document.getElementById("endDate_death").value = "";
+  document.getElementById("nameFilter_death").value = "";
+  document.getElementById("registryFilter_death").value = "";
+
+  // Show all rows again for all tables
+  ["#birth", "#marriage", "#death"].forEach(selector => {
+    document.querySelectorAll(`${selector} table tbody tr`).forEach(row => {
+      row.style.display = "";
+    });
   });
 }
 
@@ -853,6 +917,38 @@ function parseDate(dateStr) {
   window.onload = function () {
     showSection('overview');
   };
+  function searchTable(sectionId, inputId) {
+  const input = document.getElementById(inputId).value.toLowerCase();
+  const rows = document.querySelectorAll(`#${sectionId} table tbody tr`);
+
+  rows.forEach(row => {
+    const rowText = row.innerText.toLowerCase();
+    row.style.display = rowText.includes(input) ? "" : "none";
+  });
+}
+
+// Individual section search functions
+function searchBirth() {
+  searchTable("birth", "searchInput_birth");
+}
+
+function searchMarriage() {
+  searchTable("marriage", "searchInput_marriage");
+}
+
+function searchDeath() {
+  searchTable("death", "searchInput_death");
+}
+function liveSearch(sectionId, inputId) {
+  const input = document.getElementById(inputId).value.toLowerCase();
+  const rows = document.querySelectorAll(`#${sectionId} table tbody tr`);
+
+  rows.forEach(row => {
+    const rowText = row.innerText.toLowerCase();
+    row.style.display = rowText.includes(input) ? "" : "none";
+  });
+}
+
 </script>
 </body>
 </html>
